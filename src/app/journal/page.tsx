@@ -1,0 +1,4 @@
+import type { Metadata } from "next";
+import { Container } from "@/components/layout/Container";
+export const metadata: Metadata = { title: 'Journal', description: 'Continuing reflections and developments around Evolution of Energy.', alternates: { canonical: '/journal' }, robots: { index: false, follow: true } };
+export default function Page() { return <section style={{padding:"120px 0",minHeight:"62vh"}}><Container reading><p style={{fontSize:12,fontWeight:700,letterSpacing:".14em",textTransform:"uppercase",color:"var(--eoe-gold)"}}>The Journal</p><h1 style={{marginTop:16,fontFamily:"var(--font-editorial)",fontSize:"clamp(42px,5vw,68px)",fontWeight:400,lineHeight:1,color:"var(--eoe-title-navy)"}}>The book has been published. The inquiry has not ended.</h1><p style={{marginTop:28}}>The Journal remains conditional until the first substantive article is ready.</p></Container></section>; }

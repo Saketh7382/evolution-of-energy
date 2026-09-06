@@ -1,0 +1,5 @@
+.container, .reading { width: min(calc(100% - 96px), var(--container)); margin-inline: auto; }
+.reading { max-width: var(--reading); }
+@media (max-width: 1023px) { .container, .reading { width: min(calc(100% - 64px), var(--container)); } }
+@media (max-width: 767px) { .container, .reading { width: min(calc(100% - 40px), var(--container)); } }
+@media (max-width: 380px) { .container, .reading { width: min(calc(100% - 32px), var(--container)); } }

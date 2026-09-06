@@ -1,0 +1,20 @@
+.header { position: sticky; top: 0; z-index: var(--z-header); min-height: 76px; display: flex; align-items: center; background: rgba(255,249,239,.86); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(5,37,74,.09); }
+.inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; }
+.brand { display: inline-flex; align-items: center; color: var(--eoe-title-navy); text-decoration: none; font-family: var(--font-editorial); font-size: 19px; letter-spacing: -.01em; white-space: nowrap; }
+.nav { justify-self: end; display: flex; align-items: center; gap: clamp(18px, 2.2vw, 30px); }
+.nav a { position: relative; font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; text-decoration: none; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -8px; height: 1px; background: var(--eoe-gold); transition: right var(--motion-base) var(--ease-eoe); }
+.nav a:hover::after, .nav a:focus-visible::after { right: 0; }
+.cta { white-space: nowrap; }
+.mobileMenu { display: none; }
+@media (max-width: 1023px) {
+  .inner { grid-template-columns: 1fr auto; }
+  .nav, .cta { display: none; }
+  .mobileMenu { display: block; position: relative; }
+  .mobileMenu summary { cursor: pointer; list-style: none; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+  .mobileMenu summary::-webkit-details-marker { display: none; }
+  .mobileMenu[open] nav { position: fixed; inset: 64px 0 0; padding: 54px max(24px, calc((100vw - var(--container))/2)); background: rgba(255,249,239,.98); display: flex; flex-direction: column; gap: 22px; overflow: auto; }
+  .mobileMenu nav a { width: fit-content; font-family: var(--font-editorial); font-size: clamp(30px, 7vw, 46px); line-height: 1.05; text-decoration: none; color: var(--eoe-title-navy); }
+  .mobileMenu nav .mobileCta { margin-top: 18px; padding-top: 20px; border-top: 1px solid var(--border-light); color: #9b682e; }
+}
+@media (max-width: 767px) { .header { min-height: 64px; } .brand { font-size: 17px; } }

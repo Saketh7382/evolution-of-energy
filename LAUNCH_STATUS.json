@@ -1,0 +1,39 @@
+{
+  "milestone": "EOE-PQBL-1.0",
+  "engineering_static_qa": "GO",
+  "production_build": "BLOCKED_EXTERNAL_NETWORK",
+  "public_launch": "BLOCKED",
+  "gari_form_activation": "BLOCKED",
+  "gari_usa_001_send": "BLOCKED",
+  "static_qa": {
+    "source_style_files_scanned": 69,
+    "public_routes_checked": 19,
+    "css_files_parsed": 21,
+    "css_parse_errors": 0,
+    "canonical_cover_hash": "PASS",
+    "author_portrait_hash": "PASS",
+    "internal_link_audit": "PASS"
+  },
+  "build_blockers": [
+    "npm registry unavailable in execution environment",
+    "package-lock.json not generated",
+    "typecheck/lint/next build not executed with dependencies installed"
+  ],
+  "public_launch_blockers": [
+    "final Terms of Use",
+    "final Privacy retention/contact wording",
+    "Amazon book URL",
+    "confirmed domain email addresses",
+    "final social/OG image",
+    "favicon/app icon or approved temporary fallback",
+    "successful production build and browser/performance QA"
+  ],
+  "gari_blockers": [
+    "production PostgreSQL and migration",
+    "Turnstile keys",
+    "transactional email identity",
+    "SPF/DKIM/DMARC",
+    "end-to-end staging validation",
+    "deliverability test"
+  ]
+}

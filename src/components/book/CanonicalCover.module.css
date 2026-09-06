@@ -1,0 +1,8 @@
+.figure { margin: 0; }
+.hero { width: min(420px, 100%); }
+.section { width: min(300px, 100%); }
+.image { width: 100%; height: auto; box-shadow: 0 30px 80px rgba(3,13,25,.20), 0 8px 24px rgba(3,13,25,.12); }
+@media (max-width: 767px) {
+  .hero { width: min(78vw, 330px); margin-inline: auto; }
+  .section { width: min(70vw, 300px); margin-inline: auto; }
+}

@@ -1,0 +1,58 @@
+export const exploreStages = [
+  {
+    num: "01",
+    slug: "reality",
+    title: "Reality",
+    question: "What do we mean when we speak of reality?",
+    support: "Begin with the question beneath every explanation.",
+    href: "/explore/reality",
+    tone: "reality",
+  },
+  {
+    num: "02",
+    slug: "understanding",
+    title: "Understanding",
+    question: "Can our understanding ever become identical with reality itself?",
+    support: "Explore the relationship between what exists and what we are able to understand about it.",
+    href: "/explore/understanding",
+    tone: "understanding",
+  },
+  {
+    num: "03",
+    slug: "difference-and-relation",
+    title: "Difference & Relation",
+    question: "What becomes possible when difference and relation appear together?",
+    support: "Consider distinction, relationship and the conditions through which meaning and interaction become possible.",
+    href: "/explore/difference-and-relation",
+    tone: "relation",
+  },
+  {
+    num: "04",
+    slug: "change",
+    title: "Change",
+    question: "What does change reveal about the character of existence?",
+    support: "Examine movement, transformation and the patterns through which reality appears to unfold.",
+    href: "/explore/change",
+    tone: "change",
+  },
+  {
+    num: "05",
+    slug: "development",
+    title: "Development",
+    question: "Does change merely occur, or can development emerge through it?",
+    support: "Explore the possibility that change may produce patterns, organization and new possibilities.",
+    href: "/explore/development",
+    tone: "development",
+  },
+  {
+    num: "06",
+    slug: "participation",
+    title: "Participation",
+    question: "What changes when the observer recognizes that they are also a participant?",
+    support: "Consider what understanding might mean when human beings see themselves within—not outside—the reality they seek to understand.",
+    href: "/explore/participation",
+    tone: "participation",
+  },
+] as const;
+
+export type ExploreStage = (typeof exploreStages)[number];

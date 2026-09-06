@@ -1,0 +1,557 @@
+.section {
+  position: relative;
+  background: var(--eoe-navy);
+  color: var(--text-on-dark);
+  overflow: clip;
+}
+
+.introWrap {
+  min-height: 500px;
+  padding-block: clamp(110px, 12vw, 160px);
+  display: grid;
+  grid-template-columns: 90px minmax(0, 720px);
+  align-items: end;
+  gap: 46px;
+}
+
+.introIndex {
+  align-self: start;
+  padding-top: 9px;
+  color: rgba(234, 199, 146, .7);
+  font-size: 11px;
+  letter-spacing: .18em;
+}
+
+.eyebrow,
+.stageTitle {
+  color: var(--eoe-gold-light);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.introWrap h2 {
+  margin-top: 16px;
+  font-family: var(--font-editorial);
+  font-size: clamp(50px, 6vw, 80px);
+  line-height: .96;
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+
+.intro {
+  margin-top: 24px;
+  max-width: 610px;
+  color: var(--text-on-dark-muted);
+  font-size: 18px;
+}
+
+.immersiveWrapper {
+  position: relative;
+  height: 400vh;
+  border-top: 1px solid rgba(248, 242, 232, .14);
+}
+
+.stickyFrame {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 620px;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--eoe-navy);
+}
+
+.frameGrid {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, .78fr) minmax(470px, 1.22fr);
+  align-items: center;
+}
+
+.copyStack {
+  position: relative;
+  min-height: 510px;
+  display: grid;
+  align-items: center;
+}
+
+.stageCopy {
+  grid-area: 1 / 1;
+  max-width: 610px;
+  opacity: 0;
+  transform: translateY(24px);
+  pointer-events: none;
+  transition:
+    opacity 360ms var(--ease-eoe),
+    transform 520ms var(--ease-eoe);
+}
+
+.copyActive {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.stageCount {
+  margin-bottom: 26px;
+  color: var(--eoe-gold-light);
+  font-family: var(--font-editorial);
+  font-size: 22px;
+  letter-spacing: .02em;
+}
+
+.stageCount span {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  letter-spacing: .14em;
+  opacity: .66;
+}
+
+.stageCopy h3,
+.sequentialCopy h3 {
+  margin-top: 20px;
+  max-width: 700px;
+  font-family: var(--font-editorial);
+  font-size: clamp(42px, 4.35vw, 64px);
+  line-height: 1.01;
+  font-weight: 400;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+
+.support {
+  margin-top: 24px;
+  max-width: 560px;
+  color: var(--text-on-dark-muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.stageLink,
+.enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--eoe-gold-light);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.stageLink {
+  margin-top: 32px;
+}
+
+.stageLink span,
+.enter span {
+  transition: transform var(--motion-fast) var(--ease-eoe);
+}
+
+.stageLink:hover span,
+.stageLink:focus-visible span,
+.enter:hover span,
+.enter:focus-visible span {
+  transform: translateX(5px);
+}
+
+.stageLink:focus-visible,
+.enter:focus-visible,
+.progressNav button:focus-visible {
+  outline: 2px solid var(--eoe-gold-light);
+  outline-offset: 6px;
+}
+
+.sceneStack,
+.scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sceneStack {
+  z-index: 0;
+}
+
+.scene {
+  opacity: 0;
+  transform: scale(1.018);
+  transition:
+    opacity 900ms var(--ease-eoe),
+    transform 1200ms var(--ease-eoe);
+}
+
+.sceneActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 31%, rgba(246, 229, 203, .2), transparent 23%),
+    linear-gradient(90deg, rgba(3, 13, 25, .78) 0%, rgba(3, 13, 25, .47) 43%, rgba(3, 13, 25, .09) 78%, rgba(3, 13, 25, .18) 100%);
+}
+
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .24;
+  background-image:
+    radial-gradient(circle at 72% 14%, rgba(248,242,232,.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 21%, rgba(248,242,232,.6) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 64% 24%, rgba(248,242,232,.5) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 92% 38%, rgba(248,242,232,.5) 0 1px, transparent 1.5px);
+}
+
+.orb {
+  position: absolute;
+  right: 12%;
+  top: 17%;
+  width: clamp(100px, 14vw, 210px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246,229,203,.65), rgba(234,199,146,.18) 44%, transparent 70%);
+}
+
+.ridgeFar,
+.ridgeNear {
+  position: absolute;
+  left: 37%;
+  right: -4%;
+  bottom: 0;
+}
+
+.ridgeFar {
+  height: 64%;
+  opacity: .43;
+  background: currentColor;
+  clip-path: polygon(0 100%,0 71%,13% 54%,28% 68%,43% 31%,58% 64%,72% 41%,86% 67%,100% 49%,100% 100%);
+}
+
+.ridgeNear {
+  height: 45%;
+  opacity: .78;
+  background: #071b31;
+  clip-path: polygon(0 100%,0 74%,16% 68%,30% 48%,42% 74%,55% 39%,70% 71%,85% 54%,100% 71%,100% 100%);
+}
+
+.trace {
+  position: absolute;
+  right: 9%;
+  bottom: 23%;
+  width: 33%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(234,199,146,.78), transparent);
+  transform: rotate(-8deg);
+  transform-origin: center;
+}
+
+.figure {
+  position: absolute;
+  right: 21%;
+  bottom: 16%;
+  width: 7px;
+  height: 39px;
+  border-radius: 50% 50% 30% 30%;
+  background: rgba(3,13,25,.82);
+  box-shadow: 0 -9px 0 -1px rgba(3,13,25,.82);
+}
+
+.reality {
+  background: linear-gradient(115deg, #b68f6f 0%, #6c7883 54%, #2b4763 100%);
+  color: #314f66;
+}
+
+.understanding {
+  background: linear-gradient(115deg, #637789 0%, #3f5a70 52%, #183a56 100%);
+  color: #49687f;
+}
+
+.understanding .ridgeFar {
+  opacity: .28;
+  filter: blur(1px);
+}
+
+.relation {
+  background: linear-gradient(115deg, #496679 0%, #2f5169 55%, #15344e 100%);
+  color: #3d5d71;
+}
+
+.relation .orb {
+  box-shadow: -105px 36px 0 -36px rgba(234,199,146,.34);
+}
+
+.change {
+  background: linear-gradient(115deg, #35596f 0%, #244760 55%, #0f304c 100%);
+  color: #2e536a;
+}
+
+.change .trace {
+  height: 2px;
+  width: 39%;
+  transform: rotate(-3deg);
+  box-shadow: 0 10px 24px rgba(234,199,146,.22);
+}
+
+.development {
+  background: linear-gradient(115deg, #294a62 0%, #183b57 56%, #0a2643 100%);
+  color: #244961;
+}
+
+.development .trace {
+  width: 43%;
+  bottom: 18%;
+  transform: rotate(-15deg);
+}
+
+.participation {
+  background: linear-gradient(115deg, #1e405a 0%, #102d4c 57%, #071b31 100%);
+  color: #1d4059;
+}
+
+.participation::after {
+  opacity: .75;
+}
+
+.progressNav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(28px, 5vh, 52px);
+}
+
+.progressNav ol {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  list-style: none;
+}
+
+.progressLine {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  height: 1px;
+  background: rgba(248,242,232,.2);
+  transform: translateY(-50%);
+}
+
+.progressLine span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--eoe-gold);
+  transform-origin: left center;
+  transition: transform 360ms var(--ease-eoe);
+}
+
+.progressNav button {
+  position: relative;
+  width: 100%;
+  padding: 24px 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  color: rgba(248,242,232,.55);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.progressNode {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgba(248,242,232,.42);
+  border-radius: 50%;
+  background: var(--eoe-navy);
+  transform: translateY(-50%);
+  transition: background 240ms ease, border-color 240ms ease, transform 240ms ease;
+}
+
+.progressNumber {
+  font-size: 10px;
+  letter-spacing: .15em;
+}
+
+.progressLabel {
+  max-width: 130px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.progressActive {
+  color: var(--eoe-gold-light) !important;
+}
+
+.progressActive .progressNode {
+  border-color: var(--eoe-gold);
+  background: var(--eoe-gold);
+  transform: translateY(-50%) scale(1.28);
+}
+
+.sequentialJourney {
+  border-top: 1px solid rgba(248,242,232,.14);
+}
+
+.sequentialStage {
+  position: relative;
+  min-height: min(82svh, 760px);
+  padding: 80px 0 64px;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(248,242,232,.11);
+}
+
+.sequentialStage .scene {
+  opacity: 1;
+  transform: none;
+}
+
+.sequentialStage .scene::before {
+  background: linear-gradient(180deg, rgba(3,13,25,.08), rgba(3,13,25,.86) 72%);
+}
+
+.sequentialGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 680px);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--eoe-gold-light);
+}
+
+.railNumber {
+  font-family: var(--font-editorial);
+  font-size: 28px;
+}
+
+.railLine {
+  flex: 1;
+  width: 1px;
+  min-height: 84px;
+  background: linear-gradient(var(--eoe-gold-muted), rgba(248,242,232,.08));
+}
+
+.sequentialCopy {
+  padding-bottom: 8px;
+}
+
+.enterWrap {
+  display: grid;
+  place-items: center;
+  padding: 76px 20px 108px;
+  background: linear-gradient(180deg, #071b31, var(--eoe-midnight));
+}
+
+@media (max-width: 1023px) {
+  .introWrap {
+    grid-template-columns: 1fr;
+    min-height: 430px;
+  }
+
+  .introIndex {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .introWrap {
+    min-height: auto;
+    padding-block: 88px;
+  }
+
+  .introWrap h2 {
+    font-size: 48px;
+  }
+
+  .intro {
+    font-size: 17px;
+  }
+
+  .sequentialStage {
+    min-height: 74svh;
+    padding: 72px 0 56px;
+  }
+
+  .sequentialGrid {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .railNumber {
+    font-size: 24px;
+  }
+
+  .sequentialCopy h3 {
+    font-size: clamp(34px, 10.2vw, 43px);
+  }
+
+  .support {
+    margin-top: 20px;
+  }
+
+  .orb {
+    right: 3%;
+    top: 10%;
+    width: 138px;
+  }
+
+  .ridgeFar,
+  .ridgeNear {
+    left: 0;
+    right: -18%;
+  }
+
+  .ridgeFar { height: 54%; }
+  .ridgeNear { height: 37%; }
+}
+
+@media (max-width: 389px) {
+  .sequentialGrid {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .railNumber { font-size: 21px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene,
+  .stageCopy,
+  .progressLine span,
+  .stageLink span,
+  .enter span {
+    transition: none !important;
+  }
+}

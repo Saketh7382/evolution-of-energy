@@ -1,0 +1,43 @@
+EOE-PQBL-1.0 QA EVIDENCE
+Date: 2026-09-06 project milestone
+
+1) Static repository QA
+Command: node scripts/qa-static.mjs
+Result: PASS
+- 69 source/style files scanned
+- 19 public page routes checked
+- 0 static QA failures
+- 3 known launch warnings: Terms, Privacy retention/contact, package-lock
+
+2) CSS parser audit
+Tool: tinycss2 1.5.1
+Result: PASS
+- 21 CSS files parsed
+- 0 parser errors
+
+3) Canonical asset fingerprints
+Cover:
+6c2d2564f7f6e12e817c48be32efcbec7851811b461ed68a5a6b2eecff2d44db
+Author portrait:
+4e31d65500c73b4240cfeee353e48ad82e19a85cbf1aac1dd3b1c80bc0cc06dc
+Result: PASS
+
+4) TypeScript parser-only/no-resolution scan
+Global tsc version: 5.8.3
+Result: no syntax/parser diagnostics observed. Module/type resolution diagnostics are expected because dependencies are not installed.
+This is NOT a substitute for `npm run typecheck`.
+
+5) npm registry connectivity
+Command: npm ping --fetch-timeout=10000 --fetch-retries=0
+Result: FAIL (environment limitation)
+Error: EAI_AGAIN getaddrinfo registry.npmjs.org
+
+6) Dependency install / production build
+Result: BLOCKED
+Reason: npm registry cannot be resolved from this execution environment.
+Therefore package-lock generation, real typecheck, ESLint, Next.js build, preview-browser testing and Lighthouse remain pending.
+
+7) Prelaunch environment gate
+Command: node scripts/prelaunch-check.mjs
+Result: expected BLOCKED in unconfigured QA environment.
+Missing runtime production configuration includes canonical site URL, retailer URL and confirmed email identities. GARI infrastructure variables become mandatory when NEXT_PUBLIC_GARI_REQUESTS_ENABLED=true.

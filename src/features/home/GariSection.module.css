@@ -1,0 +1,12 @@
+.section { position: relative; padding: clamp(120px, 14vw, 180px) 0; background: radial-gradient(circle at 78% 18%, #183b57 0%, #102d4c 33%, #071b31 70%, #030d19 100%); color: var(--text-on-dark); overflow: hidden; }
+.section::before { content: ""; position: absolute; inset: 0; opacity: .7; background-image: radial-gradient(circle, rgba(248,242,232,.74) 0 1px, transparent 1.2px), radial-gradient(circle, rgba(234,199,146,.48) 0 1px, transparent 1.2px); background-position: 0 0, 42px 31px; background-size: 82px 82px, 127px 127px; mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.18) 48%, #000 100%); }
+.grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.12fr .88fr; gap: clamp(58px, 8vw, 106px); align-items: center; }
+.eyebrow { color: var(--eoe-gold-light); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; }
+.grid h2 { margin-top: 18px; font-family: var(--font-editorial); font-size: clamp(48px, 5vw, 68px); line-height: .98; font-weight: 400; letter-spacing: -.018em; }
+.grid p { margin-top: 22px; max-width: 650px; color: var(--text-on-dark-muted); }
+.actions { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+.actions a:nth-child(2) { color: var(--text-on-dark); border-color: rgba(248,242,232,.55); }
+.grid blockquote { position: relative; border-left: 1px solid var(--eoe-gold); padding: 18px 0 18px 40px; font-family: var(--font-editorial); font-size: clamp(26px, 2.6vw, 36px); line-height: 1.18; }
+.grid blockquote::before { content: "GARI"; position: absolute; top: -24px; left: 40px; color: rgba(234,199,146,.55); font-family: var(--font-ui); font-size: 9px; font-weight: 700; letter-spacing: .22em; }
+.grid blockquote p { margin-top: 12px; color: var(--text-on-dark); }
+@media (max-width: 800px) { .grid { grid-template-columns: 1fr; gap: 66px; } }
