@@ -71,18 +71,6 @@ export function ExploreJourney() {
     };
   }, [immersive]);
 
-  useEffect(() => {
-    if (!immersive) return;
-    const hash = window.location.hash.replace("#explore-", "");
-    const index = exploreStages.findIndex((stage) => stage.slug === hash);
-    if (index < 0) return;
-
-    const timer = window.setTimeout(() => scrollToStage(index, false), 80);
-    return () => window.clearTimeout(timer);
-    // Run only when immersive mode becomes available.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [immersive]);
-
   const scrollToStage = useCallback(
     (index: number, updateHash = true) => {
       const wrapper = wrapperRef.current;
@@ -108,6 +96,22 @@ export function ExploreJourney() {
     },
     [immersive, reducedMotion],
   );
+
+  useEffect(() => {
+    if (!immersive) return;
+    const followHash = () => {
+      const hash = window.location.hash.replace("#explore-", "");
+      const index = exploreStages.findIndex((stage) => stage.slug === hash);
+      if (index >= 0) scrollToStage(index, false);
+    };
+
+    const timer = window.setTimeout(followHash, 80);
+    window.addEventListener("hashchange", followHash);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("hashchange", followHash);
+    };
+  }, [immersive, scrollToStage]);
 
   return (
     <section className={styles.section} aria-labelledby="explore-heading">

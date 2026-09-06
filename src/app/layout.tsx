@@ -4,10 +4,8 @@ import { Observability } from "@/components/analytics/Observability";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { WebsiteJsonLd } from "@/components/seo/JsonLd";
-import { BOOK_SUBTITLE, DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import { BOOK_SUBTITLE, DEFAULT_DESCRIPTION, SITE_NAME, SITE_URL, SITE_INDEXING_ENABLED } from "@/lib/site";
 import "@/styles/globals.css";
-
-const isProduction = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : process.env.NODE_ENV === "production";
 
 const crimsonText = Crimson_Text({
   subsets: ["latin"],
@@ -33,7 +31,7 @@ export const metadata: Metadata = {
   creator: "Sreedhar G.",
   publisher: undefined,
   alternates: { canonical: "/" },
-  robots: isProduction ? { index: true, follow: true } : { index: false, follow: false, nocache: true },
+  robots: SITE_INDEXING_ENABLED ? { index: true, follow: true } : { index: false, follow: false, nocache: true },
   openGraph: {
     type: "website",
     url: SITE_URL,

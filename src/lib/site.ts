@@ -5,3 +5,7 @@ export const BOOK_SUBTITLE = "A Philosophical Invitation to Reality, Understandi
 export const PUBLICATION_DATE = "2026-08-09";
 export const PUBLICATION_EDITION = "First Canonical Edition";
 export const DEFAULT_DESCRIPTION = "Evolution of Energy by Sreedhar G. is a philosophical invitation to explore reality, understanding, change, human experience and joyful participation through observation, questioning and continuing inquiry.";
+
+// Public indexing is an explicit launch gate, independent of the build target.
+export const SITE_INDEXING_ENABLED = process.env.SITE_INDEXING_ENABLED === "true" &&
+  (process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : process.env.NODE_ENV === "production");

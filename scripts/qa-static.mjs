@@ -12,7 +12,7 @@ const required = [
   "src/app/sitemap.ts",
   "src/app/robots.ts",
   "public/canonical/eoe-canonical-cover.png",
-  "public/author/sreedhar-g-cropperd.jpg",
+  "public/author/sreedhar-g-cropped.jpg",
   "src/app/api/gari/review-request/route.ts",
   "src/app/privacy/page.tsx",
   "src/app/terms/page.tsx",
@@ -64,7 +64,7 @@ if (!existsSync(join(root, "package-lock.json"))) warnings.push("package-lock.js
 
 const expectedHashes = new Map([
   ["public/canonical/eoe-canonical-cover.png", "6c2d2564f7f6e12e817c48be32efcbec7851811b461ed68a5a6b2eecff2d44db"],
-  ["public/author/sreedhar-g-cropperd.jpg", "4e31d65500c73b4240cfeee353e48ad82e19a85cbf1aac1dd3b1c80bc0cc06dc"],
+  ["public/author/sreedhar-g-cropped.jpg", "cd55072c506f07bb9a5c4f88410f816c56a0e2a5299bfe16135ebada44dbb4c4"],
 ]);
 for (const [file, expected] of expectedHashes) {
   if (!existsSync(join(root, file))) continue;

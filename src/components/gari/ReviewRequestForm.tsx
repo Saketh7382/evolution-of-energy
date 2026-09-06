@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { TurnstileWidget } from "./TurnstileWidget";
 import styles from "./ReviewRequestForm.module.css";
 
@@ -20,7 +20,7 @@ export function ReviewRequestForm() {
   const requestsEnabled = process.env.NEXT_PUBLIC_GARI_REQUESTS_ENABLED === "true";
   const turnstileConfigured = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
   const fieldErrors = state.kind === "error" ? state.fieldErrors ?? {} : {};
-  const firstErrors = useMemo(() => Object.entries(fieldErrors).filter(([, messages]) => messages?.length), [fieldErrors]);
+  const firstErrors = Object.entries(fieldErrors).filter(([, messages]) => messages?.length);
 
   useEffect(() => {
     if (state.kind === "error" || state.kind === "success") feedbackRef.current?.focus();

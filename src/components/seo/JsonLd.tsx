@@ -30,7 +30,7 @@ export function PersonJsonLd() {
     "@type": "Person",
     name: AUTHOR_NAME,
     birthDate: "1971-01-06",
-    image: `${SITE_URL}/author/sreedhar-g-cropperd.jpg`,
+    image: `${SITE_URL}/author/sreedhar-g-cropped.jpg`,
     url: `${SITE_URL}/author`,
     jobTitle: "Author",
     description: `Author of ${SITE_NAME}.`,

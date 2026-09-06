@@ -10,11 +10,11 @@
 @media (max-width: 1023px) {
   .inner { grid-template-columns: 1fr auto; }
   .nav, .cta { display: none; }
-  .mobileMenu { display: block; position: relative; }
+  .mobileMenu { display: block; }
   .mobileMenu summary { cursor: pointer; list-style: none; text-transform: uppercase; font-size: 11px; font-weight: 700; letter-spacing: .1em; }
   .mobileMenu summary::-webkit-details-marker { display: none; }
-  .mobileMenu[open] nav { position: fixed; inset: 64px 0 0; padding: 54px max(24px, calc((100vw - var(--container))/2)); background: rgba(255,249,239,.98); display: flex; flex-direction: column; gap: 22px; overflow: auto; }
+  .mobileMenu[open] nav { position: absolute; inset: 100% 0 auto; height: calc(100dvh - 76px); padding: 54px max(24px, calc((100vw - var(--container))/2)); background: rgba(255,249,239,.98); display: flex; flex-direction: column; gap: 22px; overflow: auto; }
   .mobileMenu nav a { width: fit-content; font-family: var(--font-editorial); font-size: clamp(30px, 7vw, 46px); line-height: 1.05; text-decoration: none; color: var(--eoe-title-navy); }
   .mobileMenu nav .mobileCta { margin-top: 18px; padding-top: 20px; border-top: 1px solid var(--border-light); color: #9b682e; }
 }
-@media (max-width: 767px) { .header { min-height: 64px; } .brand { font-size: 17px; } }
+@media (max-width: 767px) { .mobileMenu[open] nav { height: calc(100dvh - 64px); } .header { min-height: 64px; } .brand { font-size: 17px; } }

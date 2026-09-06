@@ -13,5 +13,5 @@
 - A020 First Canonical Edition metadata: APPROVED / LOCKED
 
 ## BAGB-1.0 update
-A004 — Real author portrait: **SUPPLIED / INTEGRATED** at `/public/author/sreedhar-g-cropperd.jpg`.
+A004 — Real author portrait: **SUPPLIED / INTEGRATED** at `/public/author/sreedhar-g-cropped.jpg`.
 The supplied photograph is reproduced as a photographic asset; no AI portrait substitution is used.

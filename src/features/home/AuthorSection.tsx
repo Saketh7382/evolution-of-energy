@@ -8,7 +8,7 @@ export function AuthorSection() {
     <section className={styles.section}>
       <Container className={styles.grid}>
         <div className={styles.portraitShell}>
-          <Image className={styles.portrait} src="/author/sreedhar-g-cropperd.jpg" alt="Sreedhar G., author of Evolution of Energy" width={574} height={1216} sizes="(max-width: 800px) 82vw, 420px" />
+          <Image className={styles.portrait} src="/author/sreedhar-g-cropped.jpg" alt="Sreedhar G., author of Evolution of Energy" width={574} height={861} sizes="(max-width: 800px) 82vw, 420px" />
           <span className={styles.frameLine} aria-hidden="true" />
         </div>
         <div className={styles.copy}>
