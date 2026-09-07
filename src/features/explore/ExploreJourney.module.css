@@ -69,7 +69,8 @@
 .frameGrid {
   position: relative;
   z-index: 3;
-  width: 100%;
+  width: min(calc(100% - 96px), var(--container));
+  margin-inline: auto;
   min-height: 100%;
   display: grid;
   grid-template-columns: minmax(0, .78fr) minmax(470px, 1.22fr);
