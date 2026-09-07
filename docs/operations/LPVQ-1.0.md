@@ -35,3 +35,6 @@ The changes in this audit have not been deployed.
 - Live Vercel indexing remains unchanged until these fixes are deployed. Set `SITE_INDEXING_ENABLED=true` in the production environment and rebuild only when the official-domain public launch is approved.
 - The old misspelled Vercel alias remains available; removal belongs to final domain cleanup.
 - This is a Chromium viewport audit, not physical-device, Safari/Firefox, screen-reader, or Lighthouse certification. Those checks remain open before declaring the complete launch audit finished.
+
+## PCEC-1.0 follow-up
+The Explore landing placeholder is replaced by the full-page journey. PCEC adopts `NEXT_PUBLIC_SITE_IS_LIVE` as the launch flag, superseding the `SITE_INDEXING_ENABLED` instructions above while retaining the production-only guard. See `../specifications/PCEC-1.0.md`.

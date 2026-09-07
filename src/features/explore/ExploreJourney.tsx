@@ -9,7 +9,7 @@ import styles from "./ExploreJourney.module.css";
 const DESKTOP_QUERY = "(min-width: 1024px)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
-export function ExploreJourney() {
+export function ExploreJourney({ fullPage = false }: { fullPage?: boolean }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [desktopMode, setDesktopMode] = useState(false);
@@ -119,7 +119,7 @@ export function ExploreJourney() {
         <div className={styles.introIndex} aria-hidden="true">02</div>
         <div>
           <p className={styles.eyebrow}>Explore EOE</p>
-          <h2 id="explore-heading">Follow the questions.</h2>
+          {fullPage ? <h1 id="explore-heading">Follow the questions.</h1> : <h2 id="explore-heading">Follow the questions.</h2>}
           <p className={styles.intro}>
             Six questions offer a path into some of the central themes explored in <em>Evolution of Energy</em>.
           </p>
@@ -224,9 +224,15 @@ export function ExploreJourney() {
       )}
 
       <div className={styles.enterWrap}>
-        <Link href="/explore" className={styles.enter}>
-          Enter the full exploration <span aria-hidden="true">→</span>
-        </Link>
+        {fullPage ? (
+          <Link href="/book" className={styles.enter}>
+            Continue to the book <span aria-hidden="true">→</span>
+          </Link>
+        ) : (
+          <Link href="/explore" className={styles.enter}>
+            Enter the full exploration <span aria-hidden="true">→</span>
+          </Link>
+        )}
       </div>
     </section>
   );

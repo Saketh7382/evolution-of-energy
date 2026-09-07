@@ -31,6 +31,7 @@
   text-transform: uppercase;
 }
 
+.introWrap h1,
 .introWrap h2 {
   margin-top: 16px;
   font-family: var(--font-editorial);
@@ -491,6 +492,7 @@
     padding-block: 88px;
   }
 
+  .introWrap h1,
   .introWrap h2 {
     font-size: 48px;
   }

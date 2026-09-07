@@ -1,4 +1,12 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/layout/Container";
-export const metadata: Metadata = { title: 'Explore the Ideas', description: 'Follow six questions into the central themes of Evolution of Energy.', alternates: { canonical: '/explore' } };
-export default function Page() { return <section style={{padding:"120px 0",minHeight:"62vh"}}><Container reading><p style={{fontSize:12,fontWeight:700,letterSpacing:".14em",textTransform:"uppercase",color:"var(--eoe-gold)"}}>Explore EOE</p><h1 style={{marginTop:16,fontFamily:"var(--font-editorial)",fontSize:"clamp(42px,5vw,68px)",fontWeight:400,lineHeight:1,color:"var(--eoe-title-navy)"}}>Follow the questions.</h1><p style={{marginTop:28}}>The immersive six-stage journey will replace this implementation shell in [1267d-4].</p></Container></section>; }
+import { ExploreJourney } from "@/features/explore/ExploreJourney";
+
+export const metadata: Metadata = {
+  title: "Explore the Ideas",
+  description: "Follow six questions into the central themes of Evolution of Energy.",
+  alternates: { canonical: "/explore" },
+};
+
+export default function ExplorePage() {
+  return <ExploreJourney fullPage />;
+}
