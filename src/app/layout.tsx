@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     title: "Evolution of Energy — Sreedhar G.",
     description: BOOK_SUBTITLE,
     siteName: SITE_NAME,
-    images: [{ url: "/canonical/eoe-canonical-cover.png", width: 992, height: 1586, alt: "Cover of Evolution of Energy by Sreedhar G." }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Evolution of Energy by Sreedhar G." }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Evolution of Energy — Sreedhar G.",
     description: BOOK_SUBTITLE,
-    images: ["/canonical/eoe-canonical-cover.png"],
+    images: ["/opengraph-image"],
   },
 };
 
