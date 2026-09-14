@@ -3,9 +3,9 @@ import { Container } from "@/components/layout/Container";
 export const metadata: Metadata = { title: "Contact", description: "Contact Evolution of Energy.", alternates: { canonical: "/contact" } };
 
 export default function ContactPage() {
-  const author = process.env.AUTHOR_EMAIL;
-  const academic = process.env.ACADEMIC_REVIEW_EMAIL;
-  const general = process.env.CONTACT_EMAIL;
+  const author = process.env.AUTHOR_EMAIL || "sreedhar@evolutionofenergy.org";
+  const academic = process.env.ACADEMIC_REVIEW_EMAIL || "academicreview@evolutionofenergy.org";
+  const general = process.env.CONTACT_EMAIL || "contact@evolutionofenergy.org";
   const rows = [["General enquiries", general], ["Academic review", academic], ["Author correspondence", author]].filter((row): row is [string,string] => Boolean(row[1]));
   return <section style={{padding:"120px 0",minHeight:"62vh"}}><Container reading>
     <p style={{fontSize:12,fontWeight:700,letterSpacing:".14em",textTransform:"uppercase",color:"var(--eoe-gold)"}}>Contact</p>
