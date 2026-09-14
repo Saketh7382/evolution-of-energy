@@ -1,11 +1,16 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { ImageResponse } from "next/og";
-import { BOOK_SUBTITLE, SITE_URL } from "@/lib/site";
+import { BOOK_SUBTITLE } from "@/lib/site";
 
 export const alt = "Evolution of Energy by Sreedhar G.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  const cover = await readFile(path.join(process.cwd(), "public/canonical/eoe-canonical-cover.png"));
+  const coverDataUrl = `data:image/png;base64,${cover.toString("base64")}`;
+
   return new ImageResponse(
     <div
       style={{
@@ -55,16 +60,12 @@ export default function OpenGraphImage() {
         </div>
         <div style={{ color: "#d8a45f", fontSize: 24, marginTop: 34 }}>Sreedhar G.</div>
       </div>
-      <div
-        style={{
-          backgroundImage: `url(${SITE_URL}/canonical/eoe-canonical-cover.png)`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          display: "flex",
-          height: 474,
-          width: 297,
-        }}
+      <img
+        alt=""
+        height={474}
+        src={coverDataUrl}
+        style={{ objectFit: "contain" }}
+        width={297}
       />
     </div>,
     size,
